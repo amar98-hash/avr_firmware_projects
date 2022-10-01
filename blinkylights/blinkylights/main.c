@@ -17,12 +17,22 @@
 int main(void)
 {
     /* Replace with your application code */
-	DDRD=0xFF;
 	
+	
+	DDRD=(1<<6);
+	//PIND=1;
+	
+    int i=0;
 	
     while (1) 
     {
-    }
+	   _delay_ms(1000);
+	   PORTD= (0<<6);
+	   _delay_ms(1000);
+	   PORTD=(1<<6);
+		
+	
+	}
 }
 
 ISR(XXX_vect)
