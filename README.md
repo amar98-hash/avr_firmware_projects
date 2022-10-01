@@ -1,2 +1,2 @@
-# avr_assembly_projects
-Contains different assembly code projects, successfully tested on the atmel328p microcontrollers.
+# avr_firmware_projects
+Contains different assembly and C code projects, successfully tested on the atmel328p microcontrollers.
