@@ -19,9 +19,10 @@ int main(void)
 
 {
 
-	DDRB=0x01;
-	TCCR0A=(1<<WGM01);//sets ctc bits, CTC = clear timer on compare.
+	DDRD=0x01;
+	TCCR0A=(1<<WGM01)|(1<<WGM00)|(1<<WGM02);//sets ctc bits, CTC = clear timer on compare.
 	OCR0A=156;//compares the counter with 156 ticks.
+
 	
 	TIMSK0=(1<<OCIE0A);
 	sei(); // sets I bit for interrupt to occur.
@@ -33,6 +34,11 @@ int main(void)
 
 	//DDRB= (1<<DDB1)|(1<<DDB2)|(1<<DDB3)|(0x00);
 while(1){
+	
+	if(OCR0A==255)
+		OCR0A=0;
+	else
+		OCR0A++;
 	
 	
 	
@@ -49,7 +55,7 @@ ISR(TIMER0_COMPA_vect)
 	
 	extraTime++;
 	if(extraTime>1000){
-		PORTB^=(1<<PORTB0)
+		PORTD^=(1<<PORTD0);
 		
 	}	
 	
